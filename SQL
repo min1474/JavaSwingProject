@@ -1,0 +1,61 @@
+create table member (
+	num int auto_increment primary key,
+	id varchar(20),
+	pw varchar(20),
+	name varchar(20),
+	tel varchar(20),
+	email varchar(30)
+);
+
+
+create table booking (
+	num int auto_increment primary key,
+	tablenum varchar(20),
+	id varchar(20),
+	name varchar(20),
+	tel varchar(20),
+	person varchar(10),
+	year varchar(20),
+	month varchar(20),
+	day varchar(20),
+	hour varchar(20)
+);
+alter table booking add unique(tablenum, year, month, day, hour);
+
+	//예약시 데이터베이스에 중복방지 sql문
+	//테이블 번호,년,월 ,일,시간 중복 x
+	//	예3)
+	//	CREATE TABLE EMP (
+	//	EMP_NO CHAR(20) NOT NULL,
+	//	EMP_NAME CHAR(20)     NOT NULL,
+	//	SALARY    NUMBER(4)     NOT NULL,
+	//	JOB   CHAR(10),
+	//	EMAIL    VARCHAR(50),
+	//	PRIMARY KEY(EMP_NO,EMP_NAME )
+	//	);
+	
+	//이미 컬럼이 만들어져 있는데 다중 기본키 또는 유니크키 를 설정하려면
+	//ALTER TABLE EMP ADD PRIMARY KEY (EMP_NO, EMP_NAME);
+	
+	//	ALTER TABLE 테이블이름 ADD 필드이름 필드타입 UNIQUE
+	//alter table booking add unique(tablenum, year, month, day, hour);
+
+
+
+create table review (
+	num int auto_increment primary key,
+	id varchar(20),
+	title varchar(50),
+	content varchar(300),
+	grade varchar(5)
+);
+
+create table adminmember (
+	num int auto_increment primary key,
+	id varchar(10),
+	pw varchar(10),
+	name varchar(15),
+	email varchar(20),
+	tel varchar(15),
+	code varchar(10),
+	admin varchar(10));
